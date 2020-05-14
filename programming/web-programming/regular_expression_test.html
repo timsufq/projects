@@ -1,0 +1,37 @@
+<html>
+<head>
+<script type="text/javascript">
+var regexp=new RegExp("");
+function regc()
+{
+	if(document.getElementById("regexp").value!=regexp)
+	{
+		regexp=eval(document.getElementById("regexp").value);
+		document.getElementById("output").innerHTML+="<tr><strong>"+regexp+"</strong></tr>";
+		document.getElementById("cr").innerHTML=regexp;
+	}
+	else
+	{
+		document.getElementById("output").innerHTML+="<tr><strong>STILL</strong></tr>";
+	}
+}
+function wordc()
+{
+	document.getElementById("cr").innerHTML=regexp;
+	if(document.getElementById("word").value.match(regexp))
+	{
+		document.getElementById("output").innerHTML+="<tr><td>"+document.getElementById("word").value+"</td><td><strong>yes</strong></td></tr>";
+	}
+	else
+	{
+		document.getElementById("output").innerHTML+="<tr><td>"+document.getElementById("word").value+"</td><td><strong>no</strong></td></tr>";
+	}
+}
+</script>
+</head>
+<body>
+<p><input type="text" id="regexp"><input type="button" value="regexp" onclick="regc()"><span id="cr"></span></p>
+<p><input type="text" id="word"><input type="button" value="test word" onclick="wordc()"></p>
+<p><table id="output" border="1"><table></p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Login</title>
+<script type="text/javascript">
+var xmlHttp;
+function ajaxFunction()
+{
+	xmlHttp=null;
+	if(window.XMLHttpRequest)
+	{
+		xmlHttp=new XMLHttpRequest();
+	}
+	else if(window.ActiveXObject)
+	{
+		xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	if(xmlHttp!=null)
+	{
+		xmlHttp.onreadystatechange=stateChange;
+		xmlHttp.open("POST","login.php",true);
+		xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlHttp.send("username="+document.getElementById("username").value+"&password="+document.getElementById("password").value);
+	}
+	else
+	{
+		alert("Your browser does not support XMLHTTP.");
+	}
+}
+function stateChange()
+{
+	if(xmlHttp.readyState==4)
+	{
+		if(xmlHttp.status==200)
+		{
+			info.innerHTML=xmlHttp.responseText;
+		}
+		else
+		{
+			info.innerHTML="Problems in retriving data: "+xmlHttp.statusText;
+		}
+	}
+}
+</script>
+</head>
+<body>
+<form>
+<p>
+Username:<br/>
+<input type="text" id="username">
+</p>
+<p>
+Password:<br/>
+<input type="password" id="password">
+</p>
+<p>
+<input type="button" value="Login" onclick="ajaxFunction()">
+</p>
+</form>
+<p id="info">
+</p>
+</body>
+</html>
