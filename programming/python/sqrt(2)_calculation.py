@@ -1,3 +1,5 @@
+# This program demonstrates a way for calculating root 2 using continued fraction (https://en.wikipedia.org/wiki/Square_root_of_2).
+
 from decimal import *
 getcontext().prec=64;
 n=1
