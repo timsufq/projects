@@ -2,7 +2,7 @@
 
 This is a collection of my undergraduate and graduate projects.
 
-Below are some languages used in these projects.
+Different languages are used depending on the requirements and objectives of different projects.
 
 * **Java** in data structure tasks
 
